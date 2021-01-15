@@ -22,7 +22,7 @@ var sendEmail = require('./routes/sendEmail');
 var newApp = express();
 
 // view engine setup
-newApp.set('views', path.join(__dirname, 'views'));
+// newApp.set('views', path.join(__dirname, 'views'));
 // newApp.set('view engine', 'jade');
 
 // comment out after commit - final before first deploy
