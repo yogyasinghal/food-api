@@ -1,4 +1,4 @@
-var createError = require('http-errors');
+// var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 
@@ -19,11 +19,11 @@ var verifyEmail = require('./routes/verifyEmail');
 var payment = require('./routes/payment');
 var success = require('./routes/success');
 var sendEmail = require('./routes/sendEmail');
-var app = express();
+var newApp = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+newApp.set('views', path.join(__dirname, 'views'));
+// newApp.set('view engine', 'jade');
 
 // comment out after commit - final before first deploy
 // comment for mongo atlas
@@ -62,42 +62,42 @@ function(err,db){
 
 
 
-app.use(morgan('dev'));
-// app.use(express.json());
+// newApp.use(morgan('dev'));
+// newApp.use(express.json());
 ///extra
-app.use(cors());
+newApp.use(cors());
 //
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use('/uploads',express.static('uploads'))
-// app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+newApp.use(bodyParser.urlencoded({ extended: false }));
+newApp.use(bodyParser.json());
+newApp.use('/uploads',express.static('uploads'))
+// newApp.use(cookieParser());
+newApp.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/testApi',testApiRouter);
-app.use('/signup',signupRouter);
-app.use('/login',loginRouter);
-app.use('/dishes',dishRouter);
-app.use('/cart',cartRouter);
-app.use('/verifyEmail',verifyEmail);
-app.use('/payment',payment.router);
-app.use('/success',success);
-app.use('/sendEmail',sendEmail);
+newApp.use('/', indexRouter);
+newApp.use('/users', usersRouter);
+newApp.use('/testApi',testApiRouter);
+newApp.use('/signup',signupRouter);
+newApp.use('/login',loginRouter);
+newApp.use('/dishes',dishRouter);
+newApp.use('/cart',cartRouter);
+newApp.use('/verifyEmail',verifyEmail);
+newApp.use('/payment',payment.router);
+newApp.use('/success',success);
+newApp.use('/sendEmail',sendEmail);
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
+// newApp.use(function(req, res, next) {
+//   next(createError(404));
+// });
 
 // error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+// newApp.use(function(err, req, res, next) {
+//   // set locals, only providing error in development
+//   res.locals.message = err.message;
+//   res.locals.error = req.newApp.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
+//   // render the error page
+//   res.status(err.status || 500);
+//   res.render('error');
+// });
 
-module.exports = app;
+module.exports = newApp;
