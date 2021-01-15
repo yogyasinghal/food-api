@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const port = process.env.PORT || 9000;
-const checksum_lib = require('../paytm/checksum/checksum.js');
+const checksum_lib = require('../paytm/checksum/checksum');
 
 // var data;
 console.log("in payment.js");
