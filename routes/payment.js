@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
-const port = 9000;
+const port = process.env.PORT || 9000;
 const checksum_lib = require('../paytm/checksum/checksum.js');
 
-var data;
-
+// var data;
+console.log("in payment.js");
 router.post('/',(req,res,next)=>{
     var sum = req.body.details.sum.toString();
     var id = req.body.details.userId.toString();
@@ -53,10 +53,7 @@ router.post('/',(req,res,next)=>{
     })
     // })
 })
-console.log("/////////////////////////////////////////");
-console.log("data = ",data);
-console.log("/////////////////////////////////////////");
-module.exports = {
-    router,
-    data
-};
+// console.log("/////////////////////////////////////////");
+// console.log("data = ",data);
+// console.log("/////////////////////////////////////////");
+module.exports = router;

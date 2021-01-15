@@ -81,7 +81,7 @@ newApp.use('/login',loginRouter);
 newApp.use('/dishes',dishRouter);
 newApp.use('/cart',cartRouter);
 newApp.use('/verifyEmail',verifyEmail);
-newApp.use('/payment',payment.router);
+newApp.use('/payment',payment);
 newApp.use('/success',success);
 newApp.use('/sendEmail',sendEmail);
 // catch 404 and forward to error handler
