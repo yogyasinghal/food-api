@@ -16,10 +16,10 @@ router.get('/', function(req, res) {
         params['WEBSITE']				= 'WEBSTAGING';
         params['CHANNEL_ID']			= 'WEB';
         params['INDUSTRY_TYPE_ID']	= 'Retail';
-        params['ORDER_ID']			= 'ORD'+new Date().getTime();
+        params['ORDER_ID']			= 'ORDnew Date().getTime()';
         params['CUST_ID'] 			= "id";
         params['TXN_AMOUNT']		= "100";
-        params['CALLBACK_URL']		= 'http://localhost:'+ port + '/success';
+        params['CALLBACK_URL']		= 'https://yogyanewapi.herokuapp.com/success';
         params['EMAIL']				= 'yogyatest5@gmail.com';
         params['MOBILE_NO']			= '';
 
