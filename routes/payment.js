@@ -4,7 +4,7 @@ const port = process.env.PORT || 9000;
 const checksum_lib = require('../paytm/checksum/checksum');
 
 // var data;
-console.log("in payment.js");
+console.log("in payment.js yo");
 router.get('/', function(req, res) {
         // var sum = req.body.details.sum.toString();
     // var id = req.body.details.userId.toString();
