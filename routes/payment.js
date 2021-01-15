@@ -9,14 +9,14 @@ router.get('/', function(req, res) {
         // var sum = req.body.details.sum.toString();
     // var id = req.body.details.userId.toString();
     // data = req.body.details;
-    var sum = 100;
+    // var sum = 100;
     // console.log("req = ",req.body);
         let params = {}
         params['MID'] 					= 'ukpqpp34255639627842';
         params['WEBSITE']				= 'WEBSTAGING';
         params['CHANNEL_ID']			= 'WEB';
         params['INDUSTRY_TYPE_ID']	= 'Retail';
-        params['ORDER_ID']			= 'ORDnew Date().getTime()';
+        params['ORDER_ID']			= 'ORD09757656746';
         params['CUST_ID'] 			= "id";
         params['TXN_AMOUNT']		= "100";
         params['CALLBACK_URL']		= 'https://yogyanewapi.herokuapp.com/success';
