@@ -16,7 +16,7 @@ var loginRouter = require('./routes/login');
 var dishRouter = require('./routes/dishes');
 var cartRouter = require('./routes/cart');
 var verifyEmail = require('./routes/verifyEmail');
-// var payment = require('./routes/payment');
+var payment = require('./routes/payment');
 var success = require('./routes/success');
 var sendEmail = require('./routes/sendEmail');
 var newApp = express();
@@ -81,7 +81,7 @@ newApp.use('/login',loginRouter);
 newApp.use('/dishes',dishRouter);
 newApp.use('/cart',cartRouter);
 newApp.use('/verifyEmail',verifyEmail);
-// newApp.use('/payment',payment);
+newApp.use('/payment',payment);
 newApp.use('/success',success);
 newApp.use('/sendEmail',sendEmail);
 // catch 404 and forward to error handler
