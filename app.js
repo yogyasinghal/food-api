@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 
 const mongoose = require('mongoose');
+const checksum_lib = require('./paytm/checksum/checksum');
 
 // var cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
