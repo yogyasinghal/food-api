@@ -4,8 +4,8 @@ const port = process.env.PORT || 9000;
 const checksum_lib = require('../newpaytm/checksum/checksum');
 // const paytm2 = require('../paytm2/check/check');
 // var data;
-console.log("paytm2",paytm2);
-console.log("in payment.js yo");
+// console.log("paytm2",paytm2);
+// console.log("in payment.js yo");
 router.get('/', function(req, res, next) {
   res.send("from paymemt.js");
   // res.render('index', { title: 'Express' });
