@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 // const checkAuth  = require('../middleware/check-auth');
 
+console.log("hello in check");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
