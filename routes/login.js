@@ -9,6 +9,7 @@ router.post('/',(req,res,next)=>{
     // we can use find one
     console.log("hellllllllllloooooooooooo");
     console.log(req.body);
+    console.log("user = ",User);
     User.find({email:req.body.user.email})
     .exec()
     .then(user=>{
