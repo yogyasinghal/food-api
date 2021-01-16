@@ -49,6 +49,7 @@ const MongoClient = require('mongodb').MongoClient;
 //   console.log("in atlas");
 //   client.close();
 // });
+console.log("in app.js");
 mongoose.connect(`mongodb+srv://yogya:${process.env.DB_PASS}@cluster0.hkbcf.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,
 { useUnifiedTopology: true },
 { useNewUrlParser: true },
