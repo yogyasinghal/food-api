@@ -6,7 +6,6 @@ const bodyParser = require('body-parser');
 const Dishes = require('../models/dish');
 const mongoose = require('mongoose');
 
-const path = require('path');
 const multer = require('multer');
 
 
@@ -15,25 +14,12 @@ const storage = multer.diskStorage({
         cb(null,'./uploads/');
     },
     filename: function(req,file,cb){
-        var ext = path.extname(file.originalname);
-        var file2 = file;
         cb(null,file.originalname);
     }
 });
 // const upload = multer({dest:'uploads/'});
-const upload = multer({storage:storage  });
-// const upload2 = multer();
-
-
-
-const Cloudinary = require("cloudinary");
-Cloudinary.config({
-  cloud_name: process.env.CLOUD_NAME,
-  api_key: process.env.CLOUD_API_KEY,
-  api_secret: process.env.CLOUD_API_SECRET,
-});
-
-
+const upload = multer({storage:storage});
+const upload2 = multer();
 /* GET home page. */
 router.get('/',(req, res, next)=> {
     console.log("dishes.js req = ",req);
@@ -78,38 +64,34 @@ router.get('/',(req, res, next)=> {
 //     // console.log("req",req);
 // });
 // router.post('/',upload.single('dishImage'),(req,res,next)=>{
-
-// it is commenting for cloudinary
 router.post('/',upload.single('file'),(req,res,next)=>{
-// router.post('/',(req,res,next)=>{
-
-    Cloudinary.v2.uploader.upload(req.file.path,function(err,result){
-
-         const newDish = new Dishes({
-            _id : new mongoose.Types.ObjectId(),
-            name:req.body.name,
-            description:req.body.description,
-            price:req.body.price,
-            image:result.url,
-            // comment for cloudinary
-            // image:req.file.path
-        });
-        // console.log("dish created at dishes.js");
-        console.log(newDish);
-        newDish.save()
-            .then(result=>{
-                console.log(result);
-                res.status(201).json({
-                    message:'Successfully added',
-                    createdDish : result
-                });
-                // res.send(dish);
-            })
-            .catch(err=> {
-                // console.log("Error in saving");
-                res.status(500).json({error : err});
-                });
-    })
+    // Dishes.create(req.body)
+    console.log("hello in post");
+    console.log(req.file);
+    console.log(req.body);
+    const newDish = new Dishes({
+        _id : new mongoose.Types.ObjectId(),
+        name:req.body.name,
+        description:req.body.description,
+        price:req.body.price,
+        // image:req.file
+        image:req.file.path
+    });
+    console.log("dish created at dishes.js");
+    console.log(newDish);
+    newDish.save()
+        .then(result=>{
+            console.log(result);
+            res.status(201).json({
+                message:'Successfully added',
+                createdDish : result
+            });
+            // res.send(dish);
+        })
+        .catch(err=> {
+            console.log("Error in saving");
+            res.status(500).json({error : err});
+            });
     // console.log("req",req);
 });
 router.delete('/:id',(req,res,next)=>{

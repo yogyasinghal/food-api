@@ -15,7 +15,7 @@ router.post('/',(req,res,next)=>{
     service: 'gmail',
     auth: {
         user: 'yogyatest5@gmail.com',
-        pass: 'yogya1083'
+        pass: process.env.EMAIL_PASSWORD
     }
     });
 
