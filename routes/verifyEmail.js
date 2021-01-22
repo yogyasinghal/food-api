@@ -4,12 +4,12 @@ var router = express.Router();
 // router.get('/',(req, res, next)=> {
 
 router.post('/',(req,res,next)=>{
-    console.log(req.body);
+    // console.log(req.body);
     var minm = 10000; 
     var maxm = 99999;
     // var otp = 1; 
     const otp = Math.floor(Math.random() * (maxm - minm + 1)) + minm; 
-    console.log("otp = ",otp);
+    // console.log("otp = ",otp);
 
     var transporter = nodemailer.createTransport({
     service: 'gmail',
