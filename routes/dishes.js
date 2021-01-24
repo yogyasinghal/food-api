@@ -95,10 +95,10 @@ router.get('/',(req, res, next)=> {
 // router.post('/',(req,res,next)=>{
 router.post('/',upload.single('file'),(req,res,next)=>{
 // router.post('/',(req,res,next)=>{
-    console.log(req.body);
+    // console.log(req.body);
 
     Cloudinary.v2.uploader.upload(req.file.path,function(err,result){
-        console.log("result = ",result);
+        // console.log("result = ",result);
          const newDish = new Dishes({
             _id : new mongoose.Types.ObjectId(),
             name:req.body.name,
@@ -109,7 +109,7 @@ router.post('/',upload.single('file'),(req,res,next)=>{
             // image:req.file.path
         });
         // console.log("dish created at dishes.js");
-        console.log(newDish);
+        // console.log(newDish);
         newDish.save()
             .then(resu=>{
                 console.log(resu);
