@@ -11,8 +11,8 @@ router.post('/',(req,res,next)=>{
     var data = req.body;
     // console.log("data from success = ",data.details);
     // respcode == 01 for success and other for failure
-    console.log("/////////////// in success api");
-    if (req.body.RESPCODE != '01'){
+    // console.log("/////////////// in success api");
+    if (req.body.RESPCODE == '01'){
         // success
         // reversing the condition for cheking 
         //    it should be equal to 01

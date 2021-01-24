@@ -14,6 +14,9 @@ const storage = multer.diskStorage({
     destination: function(req,res,cb){
         cb(null,'./uploads/');
     },
+    //  filename: function(req,file,cb){
+    //     cb(null,file.originalname);
+    // }
     filename: function(req,file,cb){
         var ext = path.extname(file.originalname);
         var file2 = file;
@@ -22,15 +25,24 @@ const storage = multer.diskStorage({
 });
 // const upload = multer({dest:'uploads/'});
 const upload = multer({storage:storage  });
-// const upload2 = multer();
-
+const upload2 = multer();
 
 
 const Cloudinary = require("cloudinary");
+// Cloudinary.config({
+//   cloud_name: process.env.CLOUD_NAME,
+//   api_key: process.env.CLOUD_API_KEY,
+//   api_secret: process.env.CLOUD_API_SECRET,
+// });
+// Cloudinary.config({
+//   cloud_name: `${process.env.CLOUD_NAME}`,
+//   api_key: `${process.env.CLOUD_API_KEY}`,
+//   api_secret: `${process.env.CLOUD_API_SECRET}`,
+// });
 Cloudinary.config({
-  cloud_name: process.env.CLOUD_NAME,
-  api_key: process.env.CLOUD_API_KEY,
-  api_secret: process.env.CLOUD_API_SECRET,
+  cloud_name: "yogya-cloud" ,
+  api_key: "782932695226127",
+  api_secret: "XklvDnqSWEdRS6AhjbjCNOd5o6s",
 });
 
 
@@ -80,11 +92,13 @@ router.get('/',(req, res, next)=> {
 // router.post('/',upload.single('dishImage'),(req,res,next)=>{
 
 // it is commenting for cloudinary
+// router.post('/',(req,res,next)=>{
 router.post('/',upload.single('file'),(req,res,next)=>{
 // router.post('/',(req,res,next)=>{
+    console.log(req.body);
 
     Cloudinary.v2.uploader.upload(req.file.path,function(err,result){
-
+        console.log("result = ",result);
          const newDish = new Dishes({
             _id : new mongoose.Types.ObjectId(),
             name:req.body.name,
@@ -97,11 +111,11 @@ router.post('/',upload.single('file'),(req,res,next)=>{
         // console.log("dish created at dishes.js");
         console.log(newDish);
         newDish.save()
-            .then(result=>{
-                console.log(result);
+            .then(resu=>{
+                console.log(resu);
                 res.status(201).json({
                     message:'Successfully added',
-                    createdDish : result
+                    createdDish : resu
                 });
                 // res.send(dish);
             })
