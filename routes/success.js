@@ -4,7 +4,7 @@ var router = express.Router();
 // var data = require('./payment');
 // router.get('/',(req, res, next)=> {
 // console.log("data from payment = ",data);
-console.log("in success");
+// console.log("in success");
 router.post('/',(req,res,next)=>{
     // console.log(".///////////////////");
     // console.log(req.body);
